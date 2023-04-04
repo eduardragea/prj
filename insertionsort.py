@@ -3,14 +3,24 @@ import time
 
 def insertionSort(arr):
     global length, list
+    
+    # iterate over the array from the second element to the last
     for i in range(1, length):
+        
+        # store the current element in a temporary variable
         temp = list[i]
+        
+        # iterate over the sorted part of the array to find the correct position for the current element
         j = i-1
         while j >= 0 and list[j] > temp:
-            list[j+1] = list[j]
+            list[j+1] = list[j] # shift elements to the right
             j -= 1
+        
+        # insert the current element into its correct position
         list[j+1] = temp
 
+
+# Print the insertion sort function's results the same way as in quicksort.py
 length = 1
 max_length = 100000
 while length <= max_length:

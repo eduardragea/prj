@@ -1,2 +1,9 @@
 - add read me to code to indicate how to run it
-- 
+- change hybrid form partition to median quicksort and rerun both cases 0of datasets
+- do study for first element as pivot and for random element as pivot and then partition
+- limitations 	- recursive calls need to set it from sys
+		- Stack algorithm can only use top of the stack as pivot so for ascending it won't work
+- write in intro or sth the goal of this project is to determine how different sorting algorithms behave
+based on the given dataset and at what point they reach their top efficiency paired with when they are
+running at worst case scenario. For this study, the algorithms in use are quicksort, merge sort,
+insertion sort and variations between them.

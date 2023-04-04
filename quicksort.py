@@ -1,18 +1,15 @@
 from generate import read
 import time
 import random
+import sys
 
-# def partition(array, low, high):
-#     pivot = array[high]
-#     i = low - 1
-#     for j in range(low, high):
-#         if array[j] <= pivot:
-#             i = i + 1
-#             (array[i], array[j]) = (array[j], array[i])
-#     (array[i + 1], array[high]) = (array[high], array[i + 1])
-#     return i + 1
- 
+# Set bigger recursion limit to avoid running into errors
+# when running it on larger datasets
+sys.setrecursionlimit(150000)
+
+# Function to sort the array using median quicksort algorithm
 def medianQuicksort(arr, left, right):
+    # Check if left is greater than or equal to right
     if left >= right:
         return
     
@@ -43,15 +40,20 @@ def medianQuicksort(arr, left, right):
     medianQuicksort(arr, left, j)
     medianQuicksort(arr, i, right)
 
+# Function to sort the array using iterative quicksort algorithm
 def iterativeQuicksort(arr):
+    # Initialize start and end pointers
     start = 0
     end = len(arr) - 1
     
+    # Iterate until the array is fully sorted
     while start < end:
+        # Choose a random pivot
         pivot = random.choice(arr)
         i = start
         j = end
         
+        # Partition the array around the pivot element
         while i <= j:
             while arr[i] < pivot:
                 i += 1
@@ -62,7 +64,8 @@ def iterativeQuicksort(arr):
                 i += 1
                 j -= 1
         
-        # Simulate recursive calls using loop
+        # Determine which subarray to sort next
+        # by simulating recursive calls using a stack
         if j - start < end - i:
             stack_top = end
             end = j
@@ -74,20 +77,25 @@ def iterativeQuicksort(arr):
     
     return arr
 
+# Function to sort the array using recursive quicksort algorithm
 def recursiveQuicksort(arr):
+    # Check if array has only one element
     if len(arr) <= 1:
         return arr
 
+    # Choose a random pivot
     pivot = random.choice(arr)
     left = []
     right = []
 
+    # Partition the array into two sub-arrays
     for i in range(1, len(arr)):
         if arr[i] < pivot:
             left.append(arr[i])
         else:
             right.append(arr[i])
 
+    # Sort the two sub-arrays recursively and return the sorted array
     left = recursiveQuicksort(left)
     right = recursiveQuicksort(right)
 
@@ -122,57 +130,76 @@ def stackQuicksort(arr):
 
 def partition(left, right):
     global list
+    # Choose the first element as pivot
     pivot_element = list[left]
+    # Initialise lower and upper bounds
     lb = left
     ub = right
+    # Partition the array into two sub-arrays
     while left < right:
         while list[left] <= pivot_element:
             left += 1
         while list[right] > pivot_element:
             right -= 1
         if left < right:
+            # Swap elements at 'left' and 'right'
             list[left], list[right] = list[right], list[left]
+    # Place the pivot element at its correct position
     list[lb] = list[right]
     list[right] = pivot_element
+    # Return the position of the pivot element
     return right
  
 def quickSort(left, right):
     if left < right:
         pivot = partition(left, right)
+        # Sort the left and right sub-arrays recursively
         quickSort(left, pivot-1)
         quickSort(pivot+1, right)
 
 for i in range(0,5):
+    # Set initial array length and maximum length for the array
     length = 1
     max_length = 100000
+    # Run the loop until maximum length is reached
     while length <= max_length:
+        # Print the current array length
         print(f"\nLength\t: {length}")
+        # Read in the array from user input
         list = read()
+        # Select which sorting algorithm to use based on i value and
+        # record the start time, end time, and print time taken for each
         if i == 0:
             t1 = time.perf_counter()
+            # Call recursive quicksort function
             recursiveQuicksort(list)
             t2 = time.perf_counter()
             print(f"Recursive Quick Sort\t: {t2-t1:.6f} sec")
         elif i == 1:
             t1 = time.perf_counter()
+            # Call iterative quicksort function
             iterativeQuicksort(list)
             t2 = time.perf_counter()
             print(f"Iterative Quick Sort\t: {t2-t1:.6f} sec")
         elif i == 2:
             t1 = time.perf_counter()
-            stackQuicksort(list)
-            t2 = time.perf_counter()
-            print(f"Stack Quick Sort\t: {t2-t1:.6f} sec")
-        elif i == 3:
-            t1 = time.perf_counter()
+            # Call median quicksort function
             medianQuicksort(list, 0, length - 1)
             t2 = time.perf_counter()
             print(f"Median Quick Sort\t: {t2-t1:.6f} sec")
-        else:
+        elif i == 3:
             t1 = time.perf_counter()
+            # Call partition quicksort function
             quickSort(0, length - 1)
             t2 = time.perf_counter()
             print(f"Partition Quick Sort\t: {t2-t1:.6f} sec")
+        else:
+            t1 = time.perf_counter()
+            # Call stack quicksort function
+            stackQuicksort(list)
+            t2 = time.perf_counter()
+            print(f"Stack Quick Sort\t: {t2-t1:.6f} sec")
+        # Increase array length depending on case
         if(length<10):
             length = length + 1
         else:

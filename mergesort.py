@@ -60,6 +60,7 @@ def mergeSort(arr, l, r):
         mergeSort(arr, m+1, r)
         merge(arr, l, m, r)
 
+# Print the merge sort function's results the same way as in quicksort.py
 length = 1
 max_length = 100000
 while length <= max_length:
