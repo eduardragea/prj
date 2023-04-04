@@ -1,0 +1,112 @@
+1 programming language 
+experiment with more cases of values and test on that
+different cases-> different algorithms perform better somecase bubble sort is faster than quick sort
+focus on parallel sorting and how it affects if it s working on more than one thread
+we can use more memory to save time - analyse this
+experimental analysis also where do you hit the wall - the limit for time complexity for example
+influence of data structure in sorting
+
+try answering 1 question with this project (maybe 2-3 but in principle 1) ex Why do we need time efficiency in sorting 
+algoritms or why do we need more than onw sorting algorithm / space vs runtime - how much space do i have to sacrifice 
+to get optimal runtime?
+
+uses of the sorting algortihm ex programming health finance(try and sort all stock picking results or sorting every index very 
+fast by filters ex. best performing worst performing)
+
+OTHER PROJECT - algorithms in social graphs - maybe use maltego as well
+
+
+QUESTION - How do sorting algorithms influence the finance world by their nature(time and space)?
+
+QUESTION - How is the performance of sorting algorithms influenced by the dataset used?
+
+(Greedy) insertion sort. Most market data feeds arrive as a pair of streams via a lossy protocol and need to be ordered by sequence number.
+A heap sort is a reasonable structure for this, but in most cases there’s a very tight bound on the ordering of data and a simple array or 
+vector structure is preferable to chasing pointers in a heap.
+
+Consider three type of input sequences:
+  ones: sequence of all 1's.   Example: {1, 1, 1, 1, 1}
+  range: ascending sequence, i.e. already sorted.   Example: {1, 2, 3, 10, 15}
+  shuffled range: sequence with elements randomly distributed.   Example: {5, 3, 9, 6, 8}
+
+In-place/Outplace technique – 
+A sorting technique is inplace if it does not use any extra memory to sort the array. 
+Among the comparison based techniques discussed, only merge sort is outplaced technique as it requires an extra array to merge the sorted 
+subarrays. 
+Among the non-comparison based techniques discussed, all are outplaced techniques. Counting sort uses a counting array and bucket sort 
+uses a hash table for sorting the array. 
+
+Online/Offline technique – 
+A sorting technique is considered Online if it can accept new data while the procedure is ongoing i.e. complete data is not required to 
+start the sorting operation. 
+Among the comparison based techniques discussed, only Insertion Sort qualifies for this because of the underlying algorithm it uses i.e. 
+it processes the array (not just elements) from left to right and if new elements are added to the right, it doesn’t impact the ongoing 
+operation. 
+
+Stable/Unstable technique – 
+A sorting technique is stable if it does not change the order of elements with the same value. 
+Out of comparison based techniques, bubble sort, insertion sort and merge sort are stable techniques. Selection sort is unstable as it 
+may change the order of elements with the same value. For example, consider the array 4, 4, 1, 3. 
+
+In the first iteration, the minimum element found is 1 and it is swapped with 4 at 0th position. Therefore, the order of 4 with respect 
+to 4 at the 1st position will change. Similarly, quick sort and heap sort are also unstable. 
+
+Out of non-comparison based techniques, Counting sort and Bucket sort are stable sorting techniques whereas radix sort stability depends 
+on the underlying algorithm used for sorting. 
+
+Analysis of sorting techniques : 
+ 
+
+When the array is almost sorted, insertion sort can be preferred.
+When order of input is not known, merge sort is preferred as it has worst case time complexity of nlogn and it is stable as well.
+When the array is sorted, insertion and bubble sort gives complexity of n but quick sort gives complexity of n^2.
+
+
+#MEETING2
+ - can i find sth that is faster - sacrifice memory for time
+ - 1/2/3 sorting methods and generate input instances to test them - look at how shuffled the input is(ex. largest subarray that is already 
+sorted, lots of identical items in an array)
+ - focus on just quicksort - requires input distance to be a specific size (1000 integers before quicksort can show it's average time 
+performance) - so test the performance for dofferent number of imputs with different types of data(all ones or sorted or shuffled, or 
+descending)
+ - do the same for other algorithms
+ - generate input instances it s important
+ - determine the N0 the minimum or maximum size of the input for the charcteristics of the algorithm
+
+MEETING3
+do the same with bubble sort to see the difference between ascending and desscending because one checks and the other on s swap
+in order to see a difference bwtween algoritms that just compare or algorithms that swap
+
+
+BSPR
+motivation - why is what I write important and why should people read it
+
+
+BOOKS
+collins introduction to algorithms
+
+otman sth meyer..
+
+tim sth
+
+motivation - even though there might be references in reports about sorting the hardware has moved on
+
+new books mean updated results - new algorithms improve oj runtime 
+for example matrix multiplication has improved - tiny changes form 2.8 to to 2.6 but tiny theoretical improvement can mean a big
+ leap in development...
+
+in introduction or conclusion give a general example on how the algorithm behaves(extreme and average the 
+knowledge of before analysis vs the after my analysis).
++ find an economic motive - if it s not fast enough we are losing money - anything about finance.)
+
+Explain what data structures i am using - in the what i am using section
+
+if over 40mb - section suplementary ... add the rest of pictures there and put in appendix or put them
+in github and get a link.
+
+also write about data analysis - if you analyse data you are most likely sorting it anyhting that requires indexin g and 
+requires sorting
+
+also in motivation can be just curiosity of how an algorithm behaves.
+
+don t forget professional issues section or any other section - address evry section in the templates
